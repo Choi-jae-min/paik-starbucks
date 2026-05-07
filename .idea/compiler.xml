@@ -7,16 +7,25 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.46/a5cfe99fdf320e84955ef653f2ce1bf789d11385/lombok-1.18.46.jar" />
         </processorPath>
-        <module name="cafeteria.test" />
-        <module name="cafeteria.main" />
+        <module name="sparta.paik-starbucks.test" />
+        <module name="sparta.paik-starbucks.main" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sparta.cafeteria.main" target="17" />
+      <module name="sparta.cafeteria.test" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="cafeteria" options="-parameters" />
       <module name="cafeteria.main" options="-parameters" />
       <module name="cafeteria.test" options="-parameters" />
+      <module name="paik-starbucks" options="-parameters" />
+      <module name="sparta.cafeteria.main" options="-parameters" />
+      <module name="sparta.cafeteria.test" options="-parameters" />
+      <module name="sparta.paik-starbucks.main" options="-parameters" />
+      <module name="sparta.paik-starbucks.test" options="-parameters" />
     </option>
   </component>
 </project>

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/paik-starbucks.iml" filepath="$PROJECT_DIR$/.idea/paik-starbucks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sparta.paik-starbucks.main.iml" filepath="$PROJECT_DIR$/.idea/modules/sparta.paik-starbucks.main.iml" />
     </modules>
   </component>
 </project>
