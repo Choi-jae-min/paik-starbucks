@@ -1,26 +1,19 @@
 package sparta.cafeteria.order.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Getter
+@AllArgsConstructor
 public class Order {
-    private Long id;
-    private Long memberId;
-    private Long menuId;
-    private Long price;
-    private Long quantity;
-    private LocalDateTime orderedAt;
-
-    public Order(Long id, Long memberId, Long menuId, Long price,Long quantity, LocalDateTime orderedAt) {
-        this.id = id;
-        this.memberId = memberId;
-        this.menuId = menuId;
-        this.price = price;
-        this.quantity = quantity;
-        this.orderedAt = orderedAt;
-    }
+    private final Long id;
+    private final Long memberId;
+    private final Long menuId;
+    private final Long price;
+    private final Long quantity;
+    private final LocalDateTime orderedAt;
 
     public static Order place(Long memberId, Long menuId, Long price,Long quantity) {
         return new Order(null, memberId, menuId, price, quantity, LocalDateTime.now());
