@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import sparta.cafeteria.menu.application.in.MenuUseCase;
 import sparta.cafeteria.menu.application.out.MenuRepository;
 import sparta.cafeteria.menu.application.in.RegisterMenuCommand;
+import sparta.cafeteria.menu.application.out.PageCommand;
 import sparta.cafeteria.menu.domain.Menu;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class MenuService implements MenuUseCase {
     }
 
     @Override
-    public List<Menu> getMenuList() {
-        return List.of();
+    public List<Menu> getMenuList(PageCommand pageCommand) {
+        return menuRepository.findMenuList(pageCommand);
     }
 }

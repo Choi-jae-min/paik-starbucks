@@ -8,5 +8,4 @@ import lombok.Getter;
 public class PageCommand {
     int page;
     int size;
-    int limit;
 }

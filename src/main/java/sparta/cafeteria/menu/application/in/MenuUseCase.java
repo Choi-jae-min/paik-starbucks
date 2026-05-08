@@ -1,5 +1,6 @@
 package sparta.cafeteria.menu.application.in;
 
+import sparta.cafeteria.menu.application.out.PageCommand;
 import sparta.cafeteria.menu.domain.Menu;
 
 import java.util.List;
@@ -9,5 +10,5 @@ public interface MenuUseCase {
 
     Menu getMenu(Long id);
 
-    List<Menu> getMenuList();
+    List<Menu> getMenuList(PageCommand pageCommand);
 }

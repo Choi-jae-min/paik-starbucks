@@ -24,7 +24,7 @@ public class MenuJpaEntity {
     @Enumerated(EnumType.STRING)
     private MenuStatus menuStatus;
 
-    public Menu toMenu(Long id, String name, Long price, MenuStatus menuStatus) {
+    public Menu toDomain() {
         return new Menu(id, name, price, menuStatus);
     }
 

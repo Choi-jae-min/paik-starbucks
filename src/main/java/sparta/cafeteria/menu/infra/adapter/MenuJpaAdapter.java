@@ -1,6 +1,8 @@
 package sparta.cafeteria.menu.infra.adapter;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import sparta.cafeteria.menu.application.out.MenuRepository;
@@ -27,7 +29,11 @@ public class MenuJpaAdapter implements MenuRepository {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Menu> findMenuList(PageCommand pageCommand) {
-        return List.of();
+        Pageable pageable = PageRequest.of(pageCommand.getPage(), pageCommand.getSize());
+        return menuJpaRepository.findAll(pageable).stream()
+                .map(MenuJpaEntity::toDomain)
+                .toList();
     }
 }
