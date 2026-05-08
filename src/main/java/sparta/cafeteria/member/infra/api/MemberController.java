@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import sparta.cafeteria.member.application.port.in.MemberUseCase;
 import sparta.cafeteria.member.domain.Member;
+import sparta.cafeteria.member.infra.api.dto.ChargePointRequest;
 import sparta.cafeteria.member.infra.api.dto.MemberCreateRequest;
 
 @RestController
@@ -22,5 +23,10 @@ public class MemberController {
     @PostMapping("/auth/signUp")
     public Member saveMember(@RequestBody @Valid MemberCreateRequest request) {
         return memberUseCase.signUp(request.toCommand());
+    }
+
+    @PatchMapping("/point/charge")
+    public Member chargePoint(@RequestBody @Valid ChargePointRequest request) {
+        return memberUseCase.chargePoint(request.toCommand());
     }
 }

@@ -3,6 +3,7 @@ package sparta.cafeteria.member.application.port;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import sparta.cafeteria.member.application.port.in.ChargePointCommand;
 import sparta.cafeteria.member.application.port.in.MemberUseCase;
 import sparta.cafeteria.member.application.port.in.RegisterMemberCommand;
 import sparta.cafeteria.member.application.port.out.MemberRepository;
@@ -29,6 +30,14 @@ public class MemberService implements MemberUseCase {
                 passwordEncoder.encode(command.getPassword())
         );
         memberRepository.saveMember(member);
+        return member;
+    }
+
+    @Override
+    public Member chargePoint(ChargePointCommand command) {
+        Member member = memberRepository.getMemberById(command.getMemberId());
+        member.chargePoint(command.getAmount());
+        memberRepository.updateMember(member);
         return member;
     }
 }

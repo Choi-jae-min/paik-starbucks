@@ -26,8 +26,10 @@ public class MemberJpaEntity {
     @Enumerated(EnumType.STRING)
     private MemberStatus status;
 
+    private Long point;
+
     public Member toDomain() {
-        return new Member(id, email, name);
+        return new Member(id, email, name,password, status, point);
     }
 
     public static MemberJpaEntity fromDomain(Member member) {
@@ -38,5 +40,9 @@ public class MemberJpaEntity {
         entity.password = member.getPassword();
         entity.status = member.getStatus();
         return entity;
+    }
+
+    public void updatePoint(Member member) {
+        this.point = member.getPoint();
     }
 }

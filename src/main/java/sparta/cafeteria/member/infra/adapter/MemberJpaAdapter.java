@@ -28,4 +28,13 @@ public class MemberJpaAdapter implements MemberRepository {
 
         memberJpaEntity.toDomain();
     }
+
+    @Override
+    @Transactional
+    public void updateMember(Member member) {
+        MemberJpaEntity entity = memberJpaRepository.findById(member.getId())
+                .orElseThrow(() -> new IllegalArgumentException("Member not found"));
+
+        entity.updatePoint(member);
+    }
 }
