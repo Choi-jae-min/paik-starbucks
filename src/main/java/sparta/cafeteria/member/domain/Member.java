@@ -33,4 +33,9 @@ public class Member {
         }
         this.point += amount;
     }
+
+    public void deductPoint(Long amount) {
+        if (this.point < amount) throw new IllegalArgumentException("포인트가 부족합니다.");
+        this.point -= amount;
+    }
 }
