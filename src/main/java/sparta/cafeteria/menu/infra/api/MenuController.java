@@ -33,4 +33,9 @@ public class MenuController {
         PageCommand pageCommand = new PageCommand(page, size);
         return ResponseEntity.ok(menuUseCase.getMenuList(pageCommand));
     }
+
+    @GetMapping("/popular")
+    public ResponseEntity<List<Menu>> getPopularMenus() {
+        return ResponseEntity.ok(menuUseCase.getPopularMenus());
+    }
 }

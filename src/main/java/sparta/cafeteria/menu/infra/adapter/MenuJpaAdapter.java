@@ -36,4 +36,12 @@ public class MenuJpaAdapter implements MenuRepository {
                 .map(MenuJpaEntity::toDomain)
                 .toList();
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Menu> findMenusByIds(List<Long> ids) {
+        return menuJpaRepository.findAllById(ids).stream()
+                .map(MenuJpaEntity::toDomain)
+                .toList();
+    }
 }

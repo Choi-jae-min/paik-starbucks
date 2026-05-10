@@ -11,4 +11,6 @@ public interface MenuUseCase {
     Menu getMenu(Long id);
 
     List<Menu> getMenuList(PageCommand pageCommand);
+
+    List<Menu> getPopularMenus();
 }

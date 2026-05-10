@@ -10,4 +10,6 @@ public interface MenuRepository {
     Menu findMenu(Long id);
 
     List<Menu> findMenuList(PageCommand pageCommand);
+
+    List<Menu> findMenusByIds(List<Long> ids);
 }
