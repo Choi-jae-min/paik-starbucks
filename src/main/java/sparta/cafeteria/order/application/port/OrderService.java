@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import sparta.cafeteria.member.application.port.out.MemberRepository;
 import sparta.cafeteria.member.domain.Member;
 import sparta.cafeteria.menu.application.out.MenuRepository;
+import sparta.cafeteria.menu.application.out.PopularMenu;
 import sparta.cafeteria.menu.domain.Menu;
 import sparta.cafeteria.order.application.port.in.OrderUseCase;
 import sparta.cafeteria.order.application.port.out.DataPlatformPort;
@@ -20,6 +21,7 @@ public class OrderService implements OrderUseCase {
     private final MenuRepository menuRepository;
     private final OrderRepository orderRepository;
     private final DataPlatformPort dataPlatformPort;
+    private final PopularMenu popularMenu;
 
     @Override
     @Transactional
@@ -34,6 +36,8 @@ public class OrderService implements OrderUseCase {
         Order order = Order.place(memberId, menuId, totalPrice, quantity);
         Order saved = orderRepository.saveOrder(order);
         dataPlatformPort.send(saved);
+
+        popularMenu.incrementMenuScore(menuId);
 
         return saved;
     }
